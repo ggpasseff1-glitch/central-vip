@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Central VIP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1609526713560496');
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1609526713560496&ev=PageView&noscript=1"/>
+</noscript>
+<!-- END META PIXEL -->
+
+<style>
+body {
+    margin: 0;
+    background: #0b0b0b;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 420px;
+    padding: 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+    border-radius: 12px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+button {
+    margin-top: 25px;
+    background: #1da1f2;
+    color: #fff;
+    border: none;
+    padding: 15px 28px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Central VIP 🔥</h1>
+    <p>
+        Acesso organizado a conteúdos privados e exclusivos.<br>
+        Tudo é discreto, automático e apenas para maiores de 18 anos.
+    </p>
+
+    <button onclick="enviarLead()">👉 Continuar para o Telegram</button>
+
+    <p style="font-size:12px;opacity:.6;margin-top:15px;">
+        Ao continuar, você confirma que atende a esse requisito.
+    </p>
+</div>
+
+<script>
+function enviarLead() {
+    if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+    }
+
+    setTimeout(function () {
+        window.location.href = "https://t.me/Vejaosvalores_bot";
+    }, 700);
+}
+</script>
+
+</body>
+</html>
