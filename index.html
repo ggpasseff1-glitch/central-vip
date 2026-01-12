@@ -16,20 +16,20 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}
 (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '823310557143654');
+fbq('init', '823378593647991'); 
 fbq('track', 'PageView');
 </script>
 
 <noscript>
 <img height="1" width="1" style="display:none" alt=""
-src="https://www.facebook.com/tr?id=823310557143654&ev=PageView&noscript=1"/>
+src="https://www.facebook.com/tr?id=823378593647991&ev=PageView&noscript=1"/>
 </noscript>
 <!-- END META PIXEL -->
 
 <style>
 body {
     margin: 0;
-    background: #0b0b0b;
+    background: linear-gradient(180deg, #0b0b0b, #111);
     font-family: Arial, sans-serif;
     color: #fff;
     display: flex;
@@ -44,6 +44,7 @@ body {
     text-align: center;
     background: rgba(255,255,255,0.04);
     border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
 }
 
 h1 {
@@ -78,6 +79,7 @@ button:hover {
 
 <div class="container">
     <h1>Central VIP 🔥</h1>
+
     <p>
         Acesso organizado a conteúdos privados e exclusivos.<br>
         Tudo é discreto, automático e apenas para maiores de 18 anos.
@@ -94,11 +96,12 @@ button:hover {
 function enviarLead() {
     if (typeof fbq === 'function') {
         fbq('track', 'Lead');
+        console.log('Lead enviado');
     }
 
     setTimeout(function () {
         window.location.href = "https://t.me/Vejaosvalores_bot";
-    }, 700);
+    }, 1500);
 }
 </script>
 
