@@ -16,7 +16,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}
 (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '823378593647991'); 
+fbq('init', '823378593647991');
 fbq('track', 'PageView');
 </script>
 
@@ -29,7 +29,7 @@ src="https://www.facebook.com/tr?id=823378593647991&ev=PageView&noscript=1"/>
 <style>
 body {
     margin: 0;
-    background: linear-gradient(180deg, #0b0b0b, #111);
+    background: radial-gradient(circle at top, #151515, #000);
     font-family: Arial, sans-serif;
     color: #fff;
     display: flex;
@@ -38,13 +38,14 @@ body {
     height: 100vh;
 }
 
-.container {
+.card {
+    background: rgba(20,20,20,0.9);
+    border-radius: 16px;
+    padding: 30px 25px;
     max-width: 420px;
-    padding: 25px;
+    width: 90%;
     text-align: center;
-    background: rgba(255,255,255,0.04);
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
 }
 
 h1 {
@@ -60,48 +61,59 @@ p {
 
 button {
     margin-top: 25px;
-    background: #1da1f2;
-    color: #fff;
+    background: linear-gradient(135deg, #1da1f2, #0077ff);
     border: none;
-    padding: 15px 28px;
+    padding: 16px 26px;
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
-    opacity: 0.9;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(29,161,242,0.6);
+}
+
+.small {
+    margin-top: 14px;
+    font-size: 12px;
+    opacity: 0.6;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
     <h1>Central VIP 🔥</h1>
-
     <p>
-        Acesso organizado a conteúdos privados e exclusivos.<br>
-        Tudo é discreto, automático e apenas para maiores de 18 anos.
+        Acesso exclusivo a conteúdos privados e organizados.<br><br>
+        Não é conteúdo público.<br>
+        Não é acesso gratuito.<br><br>
+        Destinado apenas a maiores de 18 anos.
     </p>
 
-    <button onclick="enviarLead()">👉 Continuar para o Telegram</button>
+    <button onclick="comprarAcesso()">🔥 Comprar acesso VIP</button>
 
-    <p style="font-size:12px;opacity:.6;margin-top:15px;">
-        Ao continuar, você confirma que atende a esse requisito.
-    </p>
+    <div class="small">
+        Pagamento obrigatório após entrar.<br>
+        Conteúdo exclusivo para membros.
+    </div>
 </div>
 
 <script>
-function enviarLead() {
+function comprarAcesso() {
     if (typeof fbq === 'function') {
         fbq('track', 'Lead');
-        console.log('Lead enviado');
+        console.log('Lead enviado com sucesso');
     }
 
     setTimeout(function () {
         window.location.href = "https://t.me/Vejaosvalores_bot";
-    }, 1500);
+    }, 700);
 }
 </script>
 
