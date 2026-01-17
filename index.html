@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Central VIP</title>
+<title>Acesso Privado</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- META PIXEL -->
@@ -39,9 +39,9 @@ body {
 }
 
 .card {
-    background: rgba(20,20,20,0.9);
+    background: rgba(20,20,20,0.92);
     border-radius: 16px;
-    padding: 30px 25px;
+    padding: 32px 26px;
     max-width: 420px;
     width: 90%;
     text-align: center;
@@ -49,21 +49,21 @@ body {
 }
 
 h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 26px;
+    margin-bottom: 12px;
 }
 
 p {
     font-size: 14px;
-    opacity: 0.85;
-    line-height: 1.5;
+    opacity: 0.88;
+    line-height: 1.55;
 }
 
 button {
-    margin-top: 25px;
+    margin-top: 26px;
     background: linear-gradient(135deg, #1da1f2, #0077ff);
     border: none;
-    padding: 16px 26px;
+    padding: 16px 28px;
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
@@ -78,7 +78,7 @@ button:hover {
 }
 
 .small {
-    margin-top: 14px;
+    margin-top: 16px;
     font-size: 12px;
     opacity: 0.6;
 }
@@ -88,32 +88,30 @@ button:hover {
 <body>
 
 <div class="card">
-    <h1>Central VIP 🔥</h1>
+    <h1>Acesso Privado 🔒</h1>
     <p>
-        Acesso exclusivo a conteúdos privados e organizados.<br><br>
-        Não é conteúdo público.<br>
-        Não é acesso gratuito.<br><br>
-        Destinado apenas a maiores de 18 anos.
+        Perfil exclusivo com conteúdos que não são postados em redes públicas.<br><br>
+        Ambiente reservado, com publicações frequentes e acesso diferenciado.<br><br>
+        Conteúdo destinado apenas a maiores de 18 anos.
     </p>
 
-    <button onclick="comprarAcesso()">🔥 Comprar acesso VIP</button>
+    <button onclick="continuar()">Ver Conteúdo</button>
 
     <div class="small">
-        Pagamento obrigatório após entrar.<br>
-        Conteúdo exclusivo para membros.
+        Acesso inicial gratuito ao canal.<br>
+        Conteúdos exclusivos disponíveis para membros.
     </div>
 </div>
 
 <script>
-function comprarAcesso() {
+function continuar() {
     if (typeof fbq === 'function') {
         fbq('track', 'Lead');
-        console.log('Lead enviado com sucesso');
     }
 
     setTimeout(function () {
-        window.location.href = "https://t.me/Vejaosvalores_bot";
-    }, 700);
+        window.location.href = "https://t.me/+BTZPTK1pZt02NDUx";
+    }, 600);
 }
 </script>
 
