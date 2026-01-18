@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Acesso VIP</title>
+<title>Acesso Privado</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- META PIXEL -->
@@ -21,64 +21,120 @@ fbq('track', 'PageView');
 </script>
 
 <noscript>
-<img height="1" width="1" style="display:none" alt=""
+<img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=823378593647991&ev=PageView&noscript=1"/>
 </noscript>
-<!-- END META PIXEL -->
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    background: radial-gradient(circle at top, #151515, #000);
     font-family: Arial, sans-serif;
-    color: #fff;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+}
+
+/* FUNDO COM FOTO */
+.background {
+    position: fixed;
+    inset: 0;
+    background: 
+        linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
+        url('bg.jpg') center/cover no-repeat;
+    animation: zoom 18s ease-in-out infinite alternate;
+}
+
+/* ANIMAÇÃO DE ZOOM SUAVE */
+@keyframes zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* CONTEÚDO */
+.container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    padding: 20px;
 }
 
 .card {
-    background: rgba(20,20,20,0.92);
+    background: rgba(20,20,20,0.88);
+    backdrop-filter: blur(6px);
     border-radius: 18px;
-    padding: 34px 28px;
+    padding: 34px 26px;
     max-width: 420px;
-    width: 90%;
+    width: 100%;
     text-align: center;
-    box-shadow: 0 0 45px rgba(0,0,0,0.8);
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    animation: fadeUp 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
-    font-size: 28px;
+    font-size: 26px;
     margin-bottom: 14px;
 }
 
 p {
-    font-size: 14.5px;
-    opacity: 0.9;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0.88;
 }
 
+/* BENEFÍCIOS */
+.benefits {
+    margin: 22px 0;
+    text-align: left;
+    font-size: 14px;
+}
+
+.benefits div {
+    margin-bottom: 10px;
+}
+
+/* BOTÃO */
 button {
-    margin-top: 28px;
+    margin-top: 26px;
+    width: 100%;
     background: linear-gradient(135deg, #1da1f2, #0077ff);
     border: none;
-    padding: 16px 30px;
+    padding: 16px;
     font-size: 16px;
     border-radius: 12px;
     cursor: pointer;
     color: #fff;
     font-weight: bold;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 18px rgba(29,161,242,0.5);
+    animation: pulse 2.5s infinite;
 }
 
-button:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 22px rgba(29,161,242,0.6);
+@keyframes pulse {
+    0% { box-shadow: 0 0 18px rgba(29,161,242,0.4); }
+    50% { box-shadow: 0 0 28px rgba(29,161,242,0.8); }
+    100% { box-shadow: 0 0 18px rgba(29,161,242,0.4); }
 }
 
 .small {
-    margin-top: 18px;
+    margin-top: 16px;
     font-size: 12px;
     opacity: 0.6;
 }
@@ -87,21 +143,28 @@ button:hover {
 
 <body>
 
-<div class="card">
-    <h1>Acesso VIP 🔒</h1>
+<div class="background"></div>
 
-    <p>
-        Um espaço reservado para quem quer ver além do público.<br>
-        Conteúdos exclusivos, atualizações frequentes e acesso diferenciado.<br><br>
-        Nada disso é postado em redes abertas.<br><br>
-        Conteúdo destinado apenas a maiores de 18 anos.
-    </p>
+<div class="container">
+    <div class="card">
+        <h1>Acesso Privado 🔒</h1>
 
-    <button onclick="continuar()">Entrar no VIP</button>
+        <p>
+            Perfil exclusivo com conteúdos que não são postados em redes públicas.
+        </p>
 
-    <div class="small">
-        Acesso inicial gratuito ao canal<br>
-        Conteúdo exclusivo disponível para membros
+        <div class="benefits">
+            <div>🔒 Ambiente reservado</div>
+            <div>⭐ Conteúdo exclusivo</div>
+            <div>🔥 Atualizações frequentes</div>
+        </div>
+
+        <button onclick="continuar()">Ver Conteúdo</button>
+
+        <div class="small">
+            Acesso inicial gratuito ao canal<br>
+            Conteúdo destinado apenas a maiores de 18 anos
+        </div>
     </div>
 </div>
 
@@ -113,7 +176,7 @@ function continuar() {
 
     setTimeout(function () {
         window.location.href = "https://t.me/+BTZPTK1pZt02NDUx";
-    }, 600);
+    }, 500);
 }
 </script>
 
