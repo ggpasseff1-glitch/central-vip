@@ -35,26 +35,25 @@ body {
     font-family: Arial, sans-serif;
     height: 100vh;
     background: #000;
-    overflow: hidden;
 }
 
 /* FUNDO COM FOTO */
 .background {
     position: fixed;
     inset: 0;
-    background: 
-        linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
-        url('bg.jpg') center/cover no-repeat;
-    animation: zoom 18s ease-in-out infinite alternate;
+    background:
+        linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
+        url('bg.jpg') center / cover no-repeat;
+    animation: zoom 20s ease-in-out infinite alternate;
 }
 
-/* ANIMAÇÃO DE ZOOM SUAVE */
+/* ZOOM SUAVE */
 @keyframes zoom {
     from { transform: scale(1); }
-    to { transform: scale(1.05); }
+    to { transform: scale(1.06); }
 }
 
-/* CONTEÚDO */
+/* CONTAINER */
 .container {
     position: relative;
     z-index: 2;
@@ -65,23 +64,24 @@ body {
     padding: 20px;
 }
 
+/* CARD */
 .card {
-    background: rgba(20,20,20,0.88);
-    backdrop-filter: blur(6px);
-    border-radius: 18px;
-    padding: 34px 26px;
+    background: rgba(35,35,35,0.92);
+    border-radius: 20px;
+    padding: 36px 28px;
     max-width: 420px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-    animation: fadeUp 1s ease forwards;
+    box-shadow: 0 0 60px rgba(0,0,0,0.85);
+    animation: fadeUp 0.9s ease forwards;
     opacity: 0;
 }
 
+/* ENTRADA */
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(25px);
     }
     to {
         opacity: 1;
@@ -92,19 +92,21 @@ body {
 h1 {
     font-size: 26px;
     margin-bottom: 14px;
+    color: #ffffff;
 }
 
 p {
-    font-size: 14px;
-    line-height: 1.55;
-    opacity: 0.88;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #eaeaea;
 }
 
 /* BENEFÍCIOS */
 .benefits {
     margin: 22px 0;
     text-align: left;
-    font-size: 14px;
+    font-size: 15px;
+    color: #ffffff;
 }
 
 .benefits div {
@@ -117,26 +119,26 @@ button {
     width: 100%;
     background: linear-gradient(135deg, #1da1f2, #0077ff);
     border: none;
-    padding: 16px;
-    font-size: 16px;
-    border-radius: 12px;
+    padding: 17px;
+    font-size: 17px;
+    border-radius: 14px;
     cursor: pointer;
-    color: #fff;
+    color: #ffffff;
     font-weight: bold;
-    box-shadow: 0 0 18px rgba(29,161,242,0.5);
-    animation: pulse 2.5s infinite;
+    box-shadow: 0 0 22px rgba(29,161,242,0.7);
+    animation: pulse 2.4s infinite;
 }
 
 @keyframes pulse {
     0% { box-shadow: 0 0 18px rgba(29,161,242,0.4); }
-    50% { box-shadow: 0 0 28px rgba(29,161,242,0.8); }
+    50% { box-shadow: 0 0 32px rgba(29,161,242,0.85); }
     100% { box-shadow: 0 0 18px rgba(29,161,242,0.4); }
 }
 
 .small {
     margin-top: 16px;
     font-size: 12px;
-    opacity: 0.6;
+    color: #cccccc;
 }
 </style>
 </head>
