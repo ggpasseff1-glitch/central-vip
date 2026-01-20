@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Acesso Privado</title>
+<title>Central Privada</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- META PIXEL -->
@@ -32,26 +32,11 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     height: 100vh;
-    background: #000;
-}
-
-.background {
-    position: fixed;
-    inset: 0;
-    background:
-        linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.85)),
-        url('bg.jpg') center / cover no-repeat;
-    animation: zoom 20s ease-in-out infinite alternate;
-}
-
-@keyframes zoom {
-    from { transform: scale(1); }
-    to { transform: scale(1.06); }
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: #fff;
 }
 
 .container {
-    position: relative;
-    z-index: 2;
     height: 100%;
     display: flex;
     align-items: center;
@@ -60,14 +45,14 @@ body {
 }
 
 .card {
-    background: rgba(35,35,35,0.92);
-    border-radius: 20px;
-    padding: 36px 28px;
+    background: rgba(20,20,20,0.95);
+    border-radius: 18px;
+    padding: 34px 28px;
     max-width: 420px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 0 60px rgba(0,0,0,0.85);
-    animation: fadeUp 0.9s ease forwards;
+    box-shadow: 0 0 50px rgba(0,0,0,0.9);
+    animation: fadeUp 0.8s ease forwards;
     opacity: 0;
 }
 
@@ -78,89 +63,76 @@ body {
 
 h1 {
     font-size: 26px;
-    margin-bottom: 14px;
-    color: #ffffff;
+    margin-bottom: 12px;
 }
 
 p {
     font-size: 15px;
     line-height: 1.6;
-    color: #eaeaea;
+    color: #e0e0e0;
 }
 
 .benefits {
     margin: 22px 0;
     text-align: left;
     font-size: 15px;
-    color: #ffffff;
 }
 
-.benefits div { margin-bottom: 10px; }
-
-.promo {
-    margin-top: 14px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #ffcc00;
+.benefits div {
+    margin-bottom: 10px;
 }
 
 button {
     margin-top: 22px;
     width: 100%;
-    background: linear-gradient(135deg, #1da1f2, #0077ff);
+    background: linear-gradient(135deg, #ffb400, #ff7a00);
     border: none;
-    padding: 17px;
+    padding: 16px;
     font-size: 17px;
     border-radius: 14px;
     cursor: pointer;
-    color: #ffffff;
+    color: #000;
     font-weight: bold;
-    box-shadow: 0 0 22px rgba(29,161,242,0.7);
-    animation: pulse 2.4s infinite;
+    box-shadow: 0 0 25px rgba(255,180,0,0.6);
+    animation: pulse 2.2s infinite;
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 18px rgba(29,161,242,0.4); }
-    50% { box-shadow: 0 0 32px rgba(29,161,242,0.85); }
-    100% { box-shadow: 0 0 18px rgba(29,161,242,0.4); }
+    0% { box-shadow: 0 0 18px rgba(255,180,0,0.4); }
+    50% { box-shadow: 0 0 32px rgba(255,180,0,0.85); }
+    100% { box-shadow: 0 0 18px rgba(255,180,0,0.4); }
 }
 
 .small {
     margin-top: 16px;
     font-size: 12px;
-    color: #cccccc;
+    color: #bbbbbb;
 }
 </style>
 </head>
 
 <body>
 
-<div class="background"></div>
-
 <div class="container">
     <div class="card">
-        <h1>Acesso Privado 🔒</h1>
+        <h1>Central Privada 🔒</h1>
 
         <p>
-            O Instagram mostra só a superfície.  
-            Aqui você encontra conteúdos que não são postados em redes públicas.
+            Existe um tipo de conteúdo que não aparece em redes abertas.<br>
+            Aqui fica tudo organizado, reservado e acessível em poucos cliques.
         </p>
 
         <div class="benefits">
-            <div>🔒 Ambiente reservado</div>
-            <div>⭐ Conteúdos exclusivos</div>
+            <div>🔐 Ambiente exclusivo para membros</div>
+            <div>⭐ Conteúdos que não ficam públicos</div>
             <div>🔥 Atualizações frequentes</div>
         </div>
 
-        <div class="promo" id="promo">
-            🔥 Promoção termina em <span id="timer">15:00</span>
-        </div>
-
-        <button onclick="continuar()">Ver Conteúdo</button>
+        <button onclick="continuar()">Liberar acesso</button>
 
         <div class="small">
-            Acesso inicial gratuito ao canal<br>
-            Conteúdo destinado apenas a maiores de 18 anos
+            Ao continuar, você confirma ter mais de 18 anos.<br>
+            Conteúdo sensível • acesso privado
         </div>
     </div>
 </div>
@@ -171,28 +143,9 @@ function continuar() {
         fbq('track', 'Lead');
     }
     setTimeout(() => {
-        window.location.href = "https://t.me/+BTZPTK1pZt02NDUx";
-    }, 500);
+        window.location.href = "https://t.me/vejaosvalores_bot?start=adsmeta";
+    }, 400);
 }
-
-// CONTADOR 15 MINUTOS
-let tempo = 15 * 60;
-const timerEl = document.getElementById("timer");
-const promoEl = document.getElementById("promo");
-
-const contador = setInterval(() => {
-    const min = Math.floor(tempo / 60);
-    const sec = tempo % 60;
-
-    timerEl.textContent = min + ":" + (sec < 10 ? "0" : "") + sec;
-
-    if (tempo <= 0) {
-        clearInterval(contador);
-        promoEl.textContent = "⛔ Promoção encerrada";
-        promoEl.style.color = "#ff6666";
-    }
-    tempo--;
-}, 1000);
 </script>
 
 </body>
