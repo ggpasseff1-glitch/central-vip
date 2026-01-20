@@ -26,9 +26,7 @@ src="https://www.facebook.com/tr?id=823378593647991&ev=PageView&noscript=1"/>
 </noscript>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -37,7 +35,6 @@ body {
     background: #000;
 }
 
-/* FUNDO COM FOTO */
 .background {
     position: fixed;
     inset: 0;
@@ -47,13 +44,11 @@ body {
     animation: zoom 20s ease-in-out infinite alternate;
 }
 
-/* ZOOM SUAVE */
 @keyframes zoom {
     from { transform: scale(1); }
     to { transform: scale(1.06); }
 }
 
-/* CONTAINER */
 .container {
     position: relative;
     z-index: 2;
@@ -64,7 +59,6 @@ body {
     padding: 20px;
 }
 
-/* CARD */
 .card {
     background: rgba(35,35,35,0.92);
     border-radius: 20px;
@@ -77,16 +71,9 @@ body {
     opacity: 0;
 }
 
-/* ENTRADA */
 @keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
@@ -101,7 +88,6 @@ p {
     color: #eaeaea;
 }
 
-/* BENEFÍCIOS */
 .benefits {
     margin: 22px 0;
     text-align: left;
@@ -109,13 +95,17 @@ p {
     color: #ffffff;
 }
 
-.benefits div {
-    margin-bottom: 10px;
+.benefits div { margin-bottom: 10px; }
+
+.promo {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffcc00;
 }
 
-/* BOTÃO */
 button {
-    margin-top: 26px;
+    margin-top: 22px;
     width: 100%;
     background: linear-gradient(135deg, #1da1f2, #0077ff);
     border: none;
@@ -152,13 +142,18 @@ button {
         <h1>Acesso Privado 🔒</h1>
 
         <p>
-            Perfil exclusivo com conteúdos que não são postados em redes públicas.
+            O Instagram mostra só a superfície.  
+            Aqui você encontra conteúdos que não são postados em redes públicas.
         </p>
 
         <div class="benefits">
             <div>🔒 Ambiente reservado</div>
-            <div>⭐ Conteúdo exclusivo</div>
+            <div>⭐ Conteúdos exclusivos</div>
             <div>🔥 Atualizações frequentes</div>
+        </div>
+
+        <div class="promo" id="promo">
+            🔥 Condição especial termina em <span id="timer">15:00</span>
         </div>
 
         <button onclick="continuar()">Ver Conteúdo</button>
@@ -175,11 +170,29 @@ function continuar() {
     if (typeof fbq === 'function') {
         fbq('track', 'Lead');
     }
-
-    setTimeout(function () {
+    setTimeout(() => {
         window.location.href = "https://t.me/+BTZPTK1pZt02NDUx";
     }, 500);
 }
+
+// CONTADOR 15 MIN
+let tempo = 15 * 60;
+const timerEl = document.getElementById("timer");
+const promoEl = document.getElementById("promo");
+
+const contador = setInterval(() => {
+    const min = Math.floor(tempo / 60);
+    const sec = tempo % 60;
+
+    timerEl.textContent = min + ":" + (sec < 10 ? "0" : "") + sec;
+
+    if (tempo <= 0) {
+        clearInterval(contador);
+        promoEl.textContent = "⛔ Condição especial encerrada";
+        promoEl.style.color = "#ff6666";
+    }
+    tempo--;
+}, 1000);
 </script>
 
 </body>
