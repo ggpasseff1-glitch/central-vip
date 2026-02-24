@@ -93,7 +93,7 @@
     <div class="card">
         <h1>Obrigado!</h1>
         <p>Sua inscrição no grupo VIP foi confirmada.<br>Clique no botão abaixo para entrar.</p>
-        <a href="https://t.me/+g_796moXRvQwNDFh" class="btn" target="_blank" rel="noopener noreferrer">
+        <a href="https://t.me/+g_796moXRvQwNDFh" class="btn" target="_blank" rel="noopener noreferrer" id="vip-button">
             Entrar no Grupo
         </a>
         <div class="footer">
@@ -101,9 +101,14 @@
         </div>
     </div>
 
-    <!-- Pixel adicional para garantir o track (opcional) -->
     <script>
-        fbq('track', 'Lead'); // Opcional: registra uma conversão de lead
+        // Evento de compra (Purchase) ao clicar no botão
+        document.getElementById('vip-button').addEventListener('click', function() {
+            fbq('track', 'Purchase', {
+                currency: 'BRL',
+                value: 1.00  // Valor simbólico; ajuste conforme necessário
+            });
+        });
     </script>
 </body>
 </html>
