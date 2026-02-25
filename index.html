@@ -139,13 +139,18 @@ button {
 
 <script>
 function continuar() {
+    // Dispara o evento Lead para o Pixel
     if (typeof fbq === 'function') {
         fbq('track', 'Lead');
     }
+    
+    // Redirecionamento direto após 200ms
     setTimeout(() => {
         window.location.href = "https://t.me/vejaosvalores_bot?start=adsmeta";
-    }, 400);
+    }, 200);
 }
+
+// Garantir que o PageView foi disparado (já está no head)
 </script>
 
 </body>
