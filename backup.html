@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Central Privada</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- META PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '2658714351180755');
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2658714351180755&ev=PageView&noscript=1"/>
+</noscript>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: #fff;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(20,20,20,0.95);
+    border-radius: 18px;
+    padding: 34px 28px;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(0,0,0,0.9);
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+.benefits {
+    margin: 22px 0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.benefits div {
+    margin-bottom: 10px;
+}
+
+button {
+    margin-top: 22px;
+    width: 100%;
+    background: linear-gradient(135deg, #ffb400, #ff7a00);
+    border: none;
+    padding: 16px;
+    font-size: 17px;
+    border-radius: 14px;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    box-shadow: 0 0 25px rgba(255,180,0,0.6);
+    animation: pulse 2.2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 18px rgba(255,180,0,0.4); }
+    50% { box-shadow: 0 0 32px rgba(255,180,0,0.85); }
+    100% { box-shadow: 0 0 18px rgba(255,180,0,0.4); }
+}
+
+.small {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #bbbbbb;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card">
+        <h1>Central Privada 🔒</h1>
+
+        <p>
+            Existe um tipo de conteúdo que não aparece em redes abertas.<br>
+            Aqui fica tudo organizado, reservado e acessível em poucos cliques.
+        </p>
+
+        <div class="benefits">
+            <div>🔐 Ambiente exclusivo para membros</div>
+            <div>⭐ Conteúdos que não ficam públicos</div>
+            <div>🔥 Atualizações frequentes</div>
+        </div>
+
+        <button onclick="continuar()">Liberar acesso</button>
+
+        <div class="small">
+            Ao continuar, você confirma ter mais de 18 anos.<br>
+            Conteúdo sensível • acesso privado
+        </div>
+    </div>
+</div>
+
+<script>
+function continuar() {
+    if (typeof fbq === 'function') {
+        fbq('track', 'Lead');
+    }
+    setTimeout(() => {
+        window.location.href = "https://t.me/vejaosvalores_bot?start=adsmeta";
+    }, 400);
+}
+</script>
+
+</body>
+</html>
