@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obrigado - Grupo VIP Telegram</title>
+    <title>Obrigado - Acesso VIP + Bônus</title>
     <style>
         * {
             margin: 0;
@@ -41,28 +41,49 @@
         }
         p {
             font-size: 1.2em;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.5;
             opacity: 0.9;
         }
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
         .btn {
             display: inline-block;
-            background: linear-gradient(45deg, #ff4e50, #f9d423);
             color: #fff;
             text-decoration: none;
-            padding: 15px 40px;
+            padding: 15px 30px;
             border-radius: 50px;
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: bold;
             letter-spacing: 1px;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(255, 78, 80, 0.4);
             border: none;
             cursor: pointer;
+        }
+        .btn-vip {
+            background: linear-gradient(45deg, #ff4e50, #f9d423);
+            box-shadow: 0 5px 15px rgba(255, 78, 80, 0.4);
+        }
+        .btn-bonus {
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+            box-shadow: 0 5px 15px rgba(71, 118, 230, 0.4);
         }
         .btn:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 25px rgba(255, 78, 80, 0.6);
+        }
+        .btn-bonus:hover {
+            box-shadow: 0 8px 25px rgba(71, 118, 230, 0.6);
+        }
+        .highlight {
+            font-size: 1em;
+            margin: 10px 0;
+            color: #f9d423;
+            font-weight: bold;
         }
         .footer {
             margin-top: 30px;
@@ -92,21 +113,42 @@
 <body>
     <div class="card">
         <h1>Obrigado!</h1>
-        <p>Sua inscrição no grupo VIP foi confirmada.<br>Clique no botão abaixo para entrar.</p>
-        <a href="https://t.me/+g_796moXRvQwNDFh" class="btn" target="_blank" rel="noopener noreferrer" id="vip-button">
-            Entrar no Grupo
-        </a>
+        <p>Sua inscrição foi confirmada com sucesso!</p>
+        
+        <div class="highlight">⬇️ ACESSE SEUS BENEFÍCIOS ABAIXO ⬇️</div>
+        
+        <div class="buttons-container">
+            <a href="https://t.me/+3e9pQSaNthQ3OGIx" class="btn btn-vip" target="_blank" rel="noopener noreferrer" id="vip-button">
+                ✅ GRUPO VIP - ACESSO LIBERADO
+            </a>
+            
+            <a href="https://t.me/+QucxGFGPW8U5MmJh" class="btn btn-bonus" target="_blank" rel="noopener noreferrer" id="bonus-button">
+                🎁 BÔNUS
+            </a>
+        </div>
+        
+        <p style="font-size: 1em; margin-top: 10px;">
+            ⚡ Entre nos dois grupos para não perder nenhum conteúdo!
+        </p>
+        
         <div class="footer">
             Ao entrar você confirma que tem mais de 18 anos.
         </div>
     </div>
 
     <script>
-        // Evento de compra (Purchase) ao clicar no botão
+        // Eventos de compra (Purchase) ao clicar nos botões
         document.getElementById('vip-button').addEventListener('click', function() {
             fbq('track', 'Purchase', {
                 currency: 'BRL',
-                value: 14.90  // Valor simbólico; ajuste conforme necessário
+                value: 5.95  // Valor simbólico para o VIP
+            });
+        });
+        
+        document.getElementById('bonus-button').addEventListener('click', function() {
+            fbq('track', 'Purchase', {
+                currency: 'BRL',
+                value: 0.00  // Bônus gratuito
             });
         });
     </script>
