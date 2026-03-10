@@ -2,232 +2,202 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Verificação de segurança</title>
+<title>Verificação</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-    body {
-        margin: 0;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        font-family: 'Arial', sans-serif;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .container {
-        background: white;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        text-align: center;
-        max-width: 400px;
-        margin: 20px;
-    }
-    
-    h2 {
-        color: #333;
-        margin-bottom: 30px;
-        font-size: 24px;
-    }
-    
-    .checkbox-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 20px 0;
-        padding: 15px;
-        background: #f9f9f9;
-        border-radius: 8px;
-        border: 1px solid #e0e0e0;
-    }
-    
-    .checkbox-container input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        cursor: pointer;
-    }
-    
-    .checkbox-container label {
-        color: #555;
-        font-size: 16px;
-        cursor: pointer;
-    }
-    
-    .btn-continuar {
-        background: #4CAF50;
-        color: white;
-        border: none;
-        padding: 12px 30px;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s;
-        opacity: 0.6;
-        pointer-events: none;
-    }
-    
-    .btn-continuar.active {
-        opacity: 1;
-        pointer-events: all;
-    }
-    
-    .btn-continuar:hover {
-        background: #45a049;
-    }
-    
-    .info-text {
-        color: #666;
-        font-size: 14px;
-        margin-top: 20px;
-    }
-    
-    .loading {
-        display: none;
-        margin-top: 20px;
-    }
-    
-    .loading.active {
-        display: block;
-    }
-    
-    .spinner {
-        border: 3px solid #f3f3f3;
-        border-top: 3px solid #667eea;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        animation: spin 1s linear infinite;
-        margin: 0 auto;
-    }
-    
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    /* Simulação do reCAPTCHA */
-    .recaptcha-badge {
-        background: #f9f9f9;
-        border: 1px solid #d3d3d3;
-        border-radius: 4px;
-        padding: 10px;
-        margin-top: 20px;
-        font-size: 12px;
-        color: #555;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .recaptcha-logo {
-        background: #4CAF50;
-        color: white;
-        width: 30px;
-        height: 30px;
-        border-radius: 4px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 10px;
-        font-weight: bold;
-    }
+
+body{
+    margin:0;
+    background:#0f0f0f;
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    color:white;
+}
+
+.container{
+    background:#1b1b1b;
+    padding:35px;
+    border-radius:14px;
+    width:340px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,0,0,0.6);
+}
+
+h2{
+    margin-bottom:25px;
+    font-size:22px;
+}
+
+.verify-box{
+
+    background:#111;
+    border:2px solid #333;
+    padding:18px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    cursor:pointer;
+}
+
+.verify-box input{
+    width:28px;
+    height:28px;
+    cursor:pointer;
+}
+
+.verify-box label{
+    font-size:18px;
+    cursor:pointer;
+}
+
+.arrow{
+    font-size:26px;
+    animation:blink 1s infinite;
+    margin-bottom:10px;
+}
+
+@keyframes blink{
+0%{opacity:1}
+50%{opacity:0.2}
+100%{opacity:1}
+}
+
+.btn{
+    margin-top:25px;
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    background:#2ecc71;
+    color:white;
+    cursor:pointer;
+    opacity:0.5;
+}
+
+.btn.active{
+    opacity:1;
+}
+
+.loading{
+    display:none;
+    margin-top:20px;
+}
+
+.spinner{
+    border:4px solid #333;
+    border-top:4px solid #2ecc71;
+    border-radius:50%;
+    width:35px;
+    height:35px;
+    animation:spin 1s linear infinite;
+    margin:auto;
+}
+
+@keyframes spin{
+0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
+}
+
+.info{
+    margin-top:18px;
+    font-size:13px;
+    color:#aaa;
+}
+
 </style>
 
-<!-- META PIXEL (carregado após verificação) -->
 <script>
-    // Função para carregar o Facebook Pixel
-    function loadFacebookPixel() {
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}
-        (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-        
-        fbq('init', '2658714351180755');
-        fbq('track', 'PageView');
-    }
 
-    // Função para verificar se é humano
-    function verifyHuman() {
-        const checkbox = document.getElementById('verify-checkbox');
-        const continueBtn = document.getElementById('continue-btn');
-        
-        if (checkbox.checked) {
-            continueBtn.classList.add('active');
-        } else {
-            continueBtn.classList.remove('active');
-        }
-    }
-    
-    // Função para redirecionar
-    function redirectToTelegram() {
-        const checkbox = document.getElementById('verify-checkbox');
-        const loading = document.getElementById('loading');
-        const continueBtn = document.getElementById('continue-btn');
-        
-        if (checkbox.checked) {
-            // Desabilita o botão durante o redirecionamento
-            continueBtn.disabled = true;
-            continueBtn.style.opacity = '0.6';
-            
-            // Mostra loading
-            loading.classList.add('active');
-            
-            // Dispara o evento Lead do Facebook
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead');
-            }
-            
-            // Pequeno delay para mostrar o loading e garantir que o pixel disparou
-            setTimeout(function() {
-                window.location.replace("https://t.me/amanda_oiie_bot?start=start");
-            }, 1000);
-        }
-    }
+function loadFacebookPixel(){
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}
+(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '2658714351180755');
+fbq('track', 'PageView');
+}
+
+function verifyHuman(){
+
+const check = document.getElementById("verify");
+const btn = document.getElementById("btn");
+
+if(check.checked){
+btn.classList.add("active");
+}else{
+btn.classList.remove("active");
+}
+
+}
+
+function redirect(){
+
+const check = document.getElementById("verify");
+const load = document.getElementById("loading");
+
+if(check.checked){
+
+load.style.display="block";
+
+if(typeof fbq !== 'undefined'){
+fbq('track','Lead');
+}
+
+setTimeout(()=>{
+window.location.replace("https://t.me/amanda_oiie_bot?start=start");
+},900);
+
+}
+
+}
+
 </script>
-</head>
-<body>
-    <div class="container">
-        <h2>🔒 Verificação de segurança</h2>
-        
-        <!-- Caixa de verificação -->
-        <div class="checkbox-container">
-            <input type="checkbox" id="verify-checkbox" onchange="verifyHuman()">
-            <label for="verify-checkbox">Não sou um robô</label>
-        </div>
-        
-        <!-- Botão continuar (inicialmente desabilitado) -->
-        <button class="btn-continuar" id="continue-btn" onclick="redirectToTelegram()">
-            Continuar para o Telegram
-        </button>
-        
-        <!-- Loading -->
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
-            <p style="margin-top: 10px; color: #666;">Redirecionando...</p>
-        </div>
-        
-        <!-- Simulação do reCAPTCHA (visual) -->
-        <div class="recaptcha-badge">
-            <div class="recaptcha-logo">✓</div>
-            <div>Protegido por verificação<br>Google reCAPTCHA</div>
-        </div>
-        
-        <div class="info-text">
-            Ao clicar em "Continuar", você será redirecionado para o Telegram.
-        </div>
-    </div>
 
-    <!-- Fallback para navegadores sem JavaScript -->
-    <noscript>
-        <meta http-equiv="refresh" content="0; url=https://t.me/amanda_oiie_bot?start=start">
-        <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=2658714351180755&ev=PageView&noscript=1"/>
-    </noscript>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🔒 Verificação</h2>
+
+<div class="arrow">👇</div>
+
+<div class="verify-box">
+
+<input type="checkbox" id="verify" onchange="verifyHuman()">
+
+<label for="verify">Não sou robô</label>
+
+</div>
+
+<button id="btn" class="btn" onclick="redirect()">
+CONTINUAR
+</button>
+
+<div class="loading" id="loading">
+<div class="spinner"></div>
+<p>Redirecionando...</p>
+</div>
+
+<div class="info">
+Após confirmar você irá para o Telegram
+</div>
+
+</div>
+
 </body>
 </html>
